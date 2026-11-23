@@ -1,0 +1,31 @@
+TRANSCRIPTOR FLOTANTE v9 (Windows)
+
+QUE CAMBIO EN ESTA VERSION (mas acertado con TUS productos)
+1. Motor de voz WHISPER (sin internet). Es mucho mas preciso que Vosk con marcas y
+   palabras raras. Recibe como guia las palabras mas usadas de tu base (similitud.xlsx)
+   y tu archivo vocabulario.txt (Qnota, Kores, Jinxiang...). Vosk queda de respaldo.
+2. Busqueda FONETICA nueva. Entiende abreviaturas y como suenan:
+     cuaderno -> CUAD   cosido -> COS   argollado -> ARG   femenino -> FEM
+     hojas -> H   "kinota" / "cuenota" / "un nota" -> QNOTA
+   Si no hay UN producto claro, ya no escribe lo que se oyo mal: escribe lo que dijiste con
+   las palabras como estan en la base (ej. "cuaderno kinota" -> CUAD QNOTA) y en la ventana
+   muestra los productos posibles.
+3. registro_voz.csv: guarda lo que oyo y lo que escribio. Sirve para afinar.
+
+COMO INSTALAR
+- Necesitas Python SOLO en un equipo con internet (el tuyo), una vez.
+- Doble clic en CREAR_EXE.bat. Descarga Whisper (~480 MB) y crea  dist\TranscriptorFlotante.zip
+- Llevalo al otro equipo, descomprimelo y abre TranscriptorFlotante.exe. No necesita Python
+  ni internet. Al abrirlo debe decir:  [VOZ] Motor WHISPER listo (cargar tarda unos segundos).
+- Mas rapido pero menos preciso:  CREAR_EXE.bat base      Mas preciso pero mas lento: CREAR_EXE.bat medium
+- Opcion con Python instalado: INSTALAR_Y_EJECUTAR.bat
+
+COMO MEJORARLO CON TU USO (sin crear el .exe de nuevo; editar junto al .exe)
+- vocabulario.txt : marcas/palabras que Whisper debe oir bien.
+- alias.txt       : "como lo dices = como esta en la base". Si oye siempre mal una palabra,
+                    agregala:   un nota = qnota
+- similitud.xlsx  : tu base (columna A). Clic derecho en el robot > Recargar base de datos.
+- probar_busqueda.py : escribe una frase y ve que productos propone, sin hablar.
+- Clic derecho en el robot > Motor de voz: Automatico / Whisper / Vosk / Google.
+
+USO: clic en el robot para hablar, otro clic para parar, clic derecho = menu.

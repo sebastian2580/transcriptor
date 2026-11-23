@@ -1,0 +1,14 @@
+# Marcas y palabras raras que quieres que el programa OIGA y ESCRIBA bien (una por linea).
+# Whisper las usa como guia. Escribelas como estan en la base. Agrega las que mas falle.
+Qnota
+Jinxiang
+Kores
+Pelikan
+Golty
+Rumatex
+Sempertex
+Fival
+Lander
+Graffury
+Festella
+Doricolor

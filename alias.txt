@@ -1,0 +1,16 @@
+# ALIAS: como DICES una palabra  =  como esta ESCRITA en tu base de datos
+# Una por linea. Lo que sigue a # es comentario. Puedes poner varias lineas con la misma palabra.
+# Las abreviaturas que son el comienzo de la palabra (CUAD = cuaderno, COS = cosido,
+# ARG = argollado, FEM = femenino) el programa ya las entiende solo; aqui van las demas.
+#
+# Si el programa oye mal una palabra siempre igual, agregala aqui. Ejemplo:
+#   un nota = qnota
+
+hojas = H
+hoja = H
+por = X
+centimetros = CM
+milimetros = MM
+cuaderno = CUAD
+cuadernos = CUAD
+unidades = UND
