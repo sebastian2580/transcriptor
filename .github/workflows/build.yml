@@ -1,0 +1,40 @@
+name: Crear TranscriptorFlotante.exe
+
+on:
+  workflow_dispatch:
+
+jobs:
+  crear-exe:
+    runs-on: windows-latest
+    timeout-minutes: 90
+    steps:
+      - name: Descargar los archivos del repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Python (en la nube, no en tu PC)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Quitar los "pause" del .bat (en la nube no hay nadie para pulsar una tecla)
+        shell: powershell
+        run: |
+          (Get-Content CREAR_EXE.bat) | Where-Object { $_.Trim() -ne 'pause' } | Set-Content CREAR_EXE_CI.bat
+
+      - name: Crear el programa (tarda unos 15-30 minutos)
+        shell: cmd
+        run: call CREAR_EXE_CI.bat
+
+      - name: Verificar que el .exe existe
+        shell: cmd
+        run: |
+          if not exist "dist\TranscriptorFlotante\TranscriptorFlotante.exe" exit /b 1
+          if not exist "dist\TranscriptorFlotante.zip" exit /b 1
+
+      - name: Guardar el resultado para descargarlo
+        uses: actions/upload-artifact@v4
+        with:
+          name: TranscriptorFlotante
+          path: dist/TranscriptorFlotante.zip
+          compression-level: 0
+          retention-days: 7
